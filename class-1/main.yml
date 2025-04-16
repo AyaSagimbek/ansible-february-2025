@@ -1,0 +1,25 @@
+- hosts: all     #all//roup/name/localhost
+  become: yes    #means sudo
+  tasks: 
+  - name: Install packages
+    ansible.builtin.apt:
+      name: 
+        - apache2
+        - tree
+        - unzip
+      state: present   #present/latest(update)=install absent=remove
+      update_cache: yes
+
+  - name: Start service apache, if not started
+    ansible.builtin.service:
+      name: apache2
+      state: started #stopped/restarted
+      enabled: yes
+
+  - name: Execute the command in remote shell
+    ansible.builtin.shell: sudo useradd tim
+    ignore_errors: yes
+
+  - name: Add the user tim
+    ansible.builtin.user:
+      name: tim

@@ -1,0 +1,18 @@
+use:
+  illinouis:
+    chicago:
+      peterson:
+        3525
+  indians:
+    indianapolis: {{ hello }}
+
+names: [ann, jenny, make]
+
+names:
+  - ann: [harvard, mit]
+    harward:
+    mit:
+  - jenny:
+      cornell
+  - mike:
+      mit 
